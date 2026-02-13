@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Users/Administrator/Desktop/SET%206/mlruns/980928298468922085/models/m-6d9d278767084da19133d0aef39a5911/artifacts
+creation_timestamp: 1770952629007
+experiment_id: '980928298468922085'
+last_updated_timestamp: 1770952635761
+model_id: m-6d9d278767084da19133d0aef39a5911
+model_type: null
+name: model
+source_run_id: e6d484b492024918854ecd51dc26831c
+status: 2
+status_message: null

@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/Administrator/Desktop/SET%206/mlruns/980928298468922085/e6d484b492024918854ecd51dc26831c/artifacts
+end_time: 1770952635801
+entry_point_name: ''
+experiment_id: '980928298468922085'
+lifecycle_stage: active
+run_id: e6d484b492024918854ecd51dc26831c
+run_name: bemused-wolf-768
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1770952628849
+status: 3
+tags: []
+user_id: Administrator

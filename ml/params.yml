@@ -1,0 +1,6 @@
+# Students can define model parameters here
+#learning_rate: TODO
+#epochs: TODO
+train:
+  test_size: 0.2
+  random_state: 42
