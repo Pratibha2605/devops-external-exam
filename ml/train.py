@@ -2,12 +2,12 @@ import pandas as pd
 import joblib
 import yaml
 import mlflow
-import mlflow.sklearn
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 import numpy as np
 import os
+
 
 def train():
     print("Training model started...")
@@ -22,7 +22,7 @@ def train():
     # Load dataset
     df = pd.read_csv("data/data.csv")
 
-    # Split features and target (last column as target)
+    # Split features and target
     X = df.iloc[:, :-1]
     y = df.iloc[:, -1]
 
@@ -42,7 +42,8 @@ def train():
     mae = mean_absolute_error(y_test, preds)
     rmse = np.sqrt(mean_squared_error(y_test, preds))
 
-    # MLflow tracking
+    # MLflow tracking (safe for Linux runner)
+    mlflow.set_tracking_uri("file:./mlruns")
     mlflow.set_experiment("HousePriceModel")
 
     with mlflow.start_run():
@@ -53,16 +54,14 @@ def train():
         mlflow.log_metric("MAE", mae)
         mlflow.log_metric("RMSE", rmse)
 
-        mlflow.sklearn.log_model(model, "model")
-
-    # Save trained model
-    os.makedirs("api", exist_ok=True)
+    # Save trained model for FastAPI
     joblib.dump(model, "api/model.pkl")
 
-    print("Model saved successfully at api/model.pkl")
+    print("Model saved at api/model.pkl")
     print("MAE:", mae)
     print("RMSE:", rmse)
     print("Training complete!")
+
 
 if __name__ == "__main__":
     train()
